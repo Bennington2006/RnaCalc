@@ -7,5 +7,4 @@ numba
 libigl
 matplotlib
 rtree
-os
 time

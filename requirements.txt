@@ -4,4 +4,4 @@ numpy
 trimesh
 scipy
 numba
-pyigl
+igl

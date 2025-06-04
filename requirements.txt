@@ -4,3 +4,4 @@ numpy
 trimesh
 scipy
 numba
+libigl

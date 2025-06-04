@@ -7,4 +7,3 @@ numba
 libigl
 matplotlib
 rtree
-time

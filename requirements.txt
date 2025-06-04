@@ -6,3 +6,4 @@ scipy
 numba
 libigl
 matplotlib
+rtree

@@ -1,25 +1,123 @@
 # RNA Colocalization Analysis App
 
-This app processes RNA colocalization data for multiple cells. It computes colocalization metrics using original, rotated, randomized, and Density-based methods.
+A free and open-source tool for object-based colocalization analysis of RNA spots in 3D meshes. This app provides a simple graphical user interface (GUI) and a command-line interface (CLI), making it accessible for researchers at all levels. It supports robust segmentation, denoising, and in-depth analysis of colocalization between objects in up to three channels.
+
+---
+
+## Introduction
+
+RNA Colocalization Analysis App enables object-based colocalization analysis with quantification, implemented in Python. The tool is available as both a user-friendly GUI (via Streamlit) and a CLI for flexible batch processing. It is suitable for a wide range of biological datasets and provides automated, reproducible, and robust quantification of co-localized particles. The app outputs both quantitative results and visualizations for inspection.
+
+---
 
 ## Features
-- Upload mesh and RNA spot files.
-- Compute colocalization metrics interactively.
-- Visualize results in a user-friendly interface.
 
-## Run Online (Recommended)
-You can run this app for free in your browser using [Streamlit Community Cloud](https://streamlit.io/cloud).
+- Upload mesh and RNA spot files (up to three channels)
+- Compute colocalization metrics: original, rotated, randomized, and KDE-based
+- Visualize results in a user-friendly interface
+- Export results for further analysis
 
-## Local Installation A
-1. Clone the repository:
-   git clone https://github.com/your-username/RNA_Colocalization_App.git
-   cd RNA_Colocalization_App
+---
 
-2. Install dependencies:
-   pip install -r requirements.txt
+## Local Installation
 
-3. Run the app:
-   streamlit run app6.py
+### Prerequisites
 
-## Local Installation B
-1. Download the Gui
+- Python >= 3.8
+- At least 8GB RAM recommended
+- Supported OS: Windows 10/11
+- Internet connection required for installation
+
+#### Required Python Packages
+
+- numpy (>=1.20.0)
+- pandas
+- scipy
+- matplotlib
+- trimesh
+- pyqtgraph
+- PyQt5
+- numba
+- natsort
+- readlif
+- read_lif
+- cellpose
+- scikit-image
+- trackpy
+- seaborn
+- streamlit
+- rtree
+
+Install all dependencies with:
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## Running the App
+
+### GUI (Recommended)
+
+1. Clone or download this repository:
+    ```
+    git clone https://github.com/your-username/RNA_Colocalization_App.git
+    cd RNA_Colocalization_App
+    ```
+
+2. Install dependencies (see above).
+
+3. Start the Streamlit app:
+    ```
+    streamlit run app6.py
+    ```
+
+4. Follow the on-screen instructions to upload your mesh and RNA spot files and run the analysis.
+
+### CLI
+
+You can also run the analysis from the command line (example command):
+
+```
+python app6.py --mesh path_to_mesh.obj --rna1 gene1.txt --rna2 gene2.txt --rna3 gene3.txt --trials 25 --threshold 1.0
+```
+
+---
+
+## Parameter Settings
+
+| Option         | Description                                 |
+|----------------|---------------------------------------------|
+| --mesh         | Input mesh file (.obj)                      |
+| --rna1         | RNA spots file 1 (.txt)                     |
+| --rna2         | RNA spots file 2 (.txt)                     |
+| --rna3         | RNA spots file 3 (.txt, optional)           |
+| --trials       | Number of trials for randomization/KDE      |
+| --threshold    | Colocalization distance threshold           |
+
+Default parameters are used if not specified.
+
+---
+
+## Output
+
+- Quantitative colocalization results (original, rotated, randomized, KDE-based)
+- Visualizations of mesh and RNA spots
+- Exportable tables for further analysis
+
+---
+
+## Common Issues
+
+- Mesh file must be in OBJ format
+- RNA spot files must be tab-delimited text with at least 3 columns (X, Y, Z)
+- Large images or meshes may require more memory
+- For GUI, use Windows for best compatibility
+
+
+---
+
+## License
+
+This project is licensed under the GNU GPL v3 - see the [LICENSE.md](LICENSE.md) file for details.

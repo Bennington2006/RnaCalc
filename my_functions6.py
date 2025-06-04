@@ -10,6 +10,8 @@ from multiprocessing import Pool, cpu_count
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from rtree import index
+import os
+import time
 
 # Function to extract RNA spots from text file
 def extract_rna_spots(file):
@@ -158,6 +160,9 @@ def generate_random_spots(mesh, desired_points, oversample_factor=2):
     Returns:
         np.ndarray: Random points inside the mesh.
     """
+    # Ensure randomness in multiprocessing
+    np.random.seed(int(time.time() * 1e6) % 2**32 + os.getpid())
+
     if not isinstance(mesh, trimesh.Trimesh):
         raise ValueError("The mesh object must be a valid trimesh.Trimesh instance.")
     
@@ -242,6 +247,9 @@ def calculate_max_density(rna_spots, mesh, resolution=1.0):
 
 
 def generate_kde_spots3(rna_spots, mesh):
+    # Ensure randomness in multiprocessing
+    np.random.seed(int(time.time() * 1e6) % 2**32 + os.getpid())
+
     if not isinstance(mesh, trimesh.Trimesh):
         raise ValueError("The mesh object must be a valid trimesh.Trimesh instance.")
     kde_model = gaussian_kde(rna_spots.T)
@@ -262,6 +270,9 @@ def generate_kde_spots3(rna_spots, mesh):
 
 
 def generate_kde_spots4(rna_spots, mesh):
+    # Ensure randomness in multiprocessing
+    np.random.seed(int(time.time() * 1e6) % 2**32 + os.getpid())
+
     kde_model = gaussian_kde(rna_spots.T)
     min_bound, max_bound = mesh.bounds
     bbox_volume = np.prod(max_bound - min_bound)

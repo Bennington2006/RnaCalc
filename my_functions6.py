@@ -3,16 +3,13 @@ import pandas as pd
 from scipy.spatial.distance import cdist
 from scipy.stats import gaussian_kde
 import trimesh
-# import igl  # No longer needed
 from scipy.spatial import cKDTree
 from numba import njit
 from multiprocessing import Pool, cpu_count
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 from rtree import index
 import os
 import time
-import functools
 
 # Function to extract RNA spots from text file
 def extract_rna_spots(file):
@@ -70,9 +67,7 @@ def colocper(spots1, spots2, threshold=1):
         raise ValueError("spots1 and spots2 must be NumPy arrays.")
     if spots1.shape[1] != 3 or spots2.shape[1] != 3:
         raise ValueError("spots1 and spots2 must have 3 columns (x, y, z).")
-    
     distances = cdist(spots1, spots2)
-    print("Distances:", distances)  # Debugging: Print distances
     close_spots1 = np.any(distances <= threshold, axis=1)
     percentage_spots1 = np.mean(close_spots1) * 100
     close_spots2 = np.any(distances <= threshold, axis=0)
@@ -470,13 +465,8 @@ def visualize_random_points(mesh, random_points):
 
 
 def clear_cache():
-    """
-    Clear all function caches (e.g., lru_cache) used in this module.
-    Extend this function if you add more cached functions.
-    """
-    # Example: If you have functions decorated with @lru_cache, clear them here.
-    # my_cached_function.cache_clear()
-    print("Cache cleared (if any was used).")
+    """Placeholder for cache clearing if needed in the future."""
+    pass
 
 
 if __name__ == "__main__":

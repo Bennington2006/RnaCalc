@@ -5,3 +5,4 @@ trimesh
 scipy
 numba
 libigl
+matplotlib

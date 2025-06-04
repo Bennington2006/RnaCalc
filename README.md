@@ -62,8 +62,7 @@ pip install -r requirements.txt
 
 1. Clone or download this repository:
     ```
-    git clone https://github.com/your-username/RNA_Colocalization_App.git
-    cd RNA_Colocalization_App
+    git clone https://github.com/Bennington2006/RnaCalc.git
     ```
 
 2. Install dependencies (see above).
@@ -75,7 +74,7 @@ pip install -r requirements.txt
 
 4. Follow the on-screen instructions to upload your mesh and RNA spot files and run the analysis.
 
-### CLI
+### CLI (Work in Progress)
 
 You can also run the analysis from the command line (example command):
 

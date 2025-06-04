@@ -12,6 +12,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from rtree import index
 import os
 import time
+import functools
 
 # Function to extract RNA spots from text file
 def extract_rna_spots(file):
@@ -466,6 +467,16 @@ def visualize_random_points(mesh, random_points):
     ax.set_zlabel('Z')
     ax.legend()
     plt.show()
+
+
+def clear_cache():
+    """
+    Clear all function caches (e.g., lru_cache) used in this module.
+    Extend this function if you add more cached functions.
+    """
+    # Example: If you have functions decorated with @lru_cache, clear them here.
+    # my_cached_function.cache_clear()
+    print("Cache cleared (if any was used).")
 
 
 if __name__ == "__main__":

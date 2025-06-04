@@ -3,7 +3,7 @@ import pandas as pd
 from scipy.spatial.distance import cdist
 from scipy.stats import gaussian_kde
 import trimesh
-import igl
+# import igl  # No longer needed
 from scipy.spatial import cKDTree
 from numba import njit
 from multiprocessing import Pool, cpu_count
@@ -250,10 +250,8 @@ def generate_kde_spots3(rna_spots, mesh):
     spots_per_cubi_um = calculate_max_density(rna_spots, mesh)
     desired_points = int(bbox_volume * spots_per_cubi_um)
     sample_space = np.random.uniform(low=min_bound, high=max_bound, size=(desired_points, 3))
-    V = np.array(mesh.vertices)
-    F = np.array(mesh.faces)
-    W = igl.fast_winding_number_for_meshes(V, F, sample_space)
-    inside_mask = W >= 0.5
+    # Use trimesh's contains instead of igl
+    inside_mask = mesh.contains(sample_space)
     points_inside_mesh = sample_space[inside_mask]
     if points_inside_mesh.size == 0:
         raise ValueError("No points inside the mesh. Check the mesh or sampling process.")
@@ -270,10 +268,8 @@ def generate_kde_spots4(rna_spots, mesh):
     spots_per_cubi_um = calculate_max_density(rna_spots, mesh)
     desired_points = int(bbox_volume * spots_per_cubi_um)
     sample_space = np.random.uniform(low=min_bound, high=max_bound, size=(desired_points, 3))
-    V = np.array(mesh.vertices)
-    F = np.array(mesh.faces)
-    W = igl.fast_winding_number_for_meshes(V, F, sample_space)
-    inside_mask = W >= 0.5
+    # Use trimesh's contains instead of igl
+    inside_mask = mesh.contains(sample_space)
     points_inside_mesh = sample_space[inside_mask]
     kde_eval = kde_model(points_inside_mesh.T)
     probabilities = kde_eval / np.sum(kde_eval)

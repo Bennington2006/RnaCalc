@@ -6,7 +6,7 @@ A free and open-source tool for object-based colocalization analysis of RNA spot
 
 ## Introduction
 
-RNA Colocalization Analysis App enables object-based colocalization analysis with quantification, implemented in Python. The tool is available as both a user-friendly GUI (via Streamlit) and a CLI for flexible batch processing. It is suitable for a wide range of biological datasets and provides automated, reproducible, and robust quantification of co-localized particles. The app outputs both quantitative results and visualizations for inspection.
+RNA Colocalization Analysis App enables object-based colocalization analysis with quantification, implemented in Python. The tool is available as both a user-friendly GUI (via Streamlit) and a CLI for flexible batch processing. It is suitable for a wide range of biological datasets and provides automated, reproducible, and robust quantification of co-localized particles. The app outputs quantitative results for inspection.
 
 ---
 

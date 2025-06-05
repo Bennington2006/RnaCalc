@@ -107,6 +107,11 @@ Default parameters are used if not specified.
 
 ---
 
+## GUI (currently unavailable)
+
+---
+
+
 ## Common Issues
 
 - Mesh file must be in OBJ format

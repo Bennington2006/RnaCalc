@@ -79,9 +79,9 @@ pip install -r requirements.txt
 You can also run the analysis from the command line (example command):
 
 ```
-python app6.py --mesh path_to_mesh.obj --rna1 gene1.txt --rna2 gene2.txt --rna3 gene3.txt --trials 25 --threshold 1.0
+python app6.py --mesh path_to_mesh.obj --rna1 gene1.txt --rna2 gene2.txt --rna3 gene3.txt --trials 1 --threshold 1.0
 ```
-
+(FILES MUST BE IN CLI FOLDER OR USE CORRECT PATHING TO FUNCTION PROPERLY)
 ---
 
 ## Parameter Settings

@@ -58,7 +58,7 @@ pip install -r requirements.txt
 
 ## Running the App
 
-### GUI (Recommended)
+### Web Version
 
 1. Clone or download this repository:
     ```

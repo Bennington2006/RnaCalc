@@ -1,9 +1,17 @@
-streamlit
-pandas
-numpy
-trimesh
-scipy
-numba
-libigl
-matplotlib
-rtree
+- numpy (>=1.20.0)
+- pandas
+- scipy
+- matplotlib
+- trimesh
+- pyqtgraph
+- PyQt5
+- numba
+- natsort
+- readlif
+- read_lif
+- cellpose
+- scikit-image
+- trackpy
+- seaborn
+- streamlit
+- rtree
